@@ -1,0 +1,45 @@
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin link-hover() {
+  &:hover,
+  &:active,
+  &focus {
+    border-color: map-get($colors, hover-color);
+    color: map-get($colors, hover-color);
+
+    svg {
+      color: map-get($colors, hover-color);
+    }
+  }
+}
+
+@mixin link-selected() {
+  a,
+  button {
+    border-color: map-get($colors, hover-color);
+    color: map-get($colors, hover-color);
+
+    svg {
+      color: map-get($colors, hover-color);
+    }
+  }
+}
+
+@mixin button-hover() {
+  &:enabled:hover,
+  &:enabled:active,
+  &:enabled:focus {
+    color: #fff;
+    background: map-get($colors, button-hover);
+  }
+}
