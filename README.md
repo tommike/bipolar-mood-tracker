@@ -5,4 +5,5 @@ Track your daily mood, sleep patterns, medications, self-care and diet related t
 ## How to use
 
 [Create Firestore project](https://firebase.google.com/docs/firestore/quickstart)
+
 Update Firebase config in firebase/firebase-project-config.js
