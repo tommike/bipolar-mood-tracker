@@ -16,13 +16,13 @@ $: npm start
 
 $: npm run firebase-init
 
-**Which Firebase CLI features do you want to setup for this folder?**
+**Which Firebase CLI features do you want to setup for this folder?**  
 (*) Hosting: Configure and deploy Firebase Hosting Sites
 
-**What do you want to use as your public directory? (public)**
+**What do you want to use as your public directory? (public)**  
 dist
 
-**Configure as a single-page app?**
+**Configure as a single-page app?**  
 y
 
 $: npm run deploy
