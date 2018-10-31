@@ -8,3 +8,5 @@ reports
 .firebase
 .firebaserc
 tests
+/firebase/firebase-project-config.js
+package-lock.json
