@@ -6,8 +6,7 @@ Track your daily mood, sleep patterns, medications, self-care and diet related t
 
 $: npm install
 
-[Create Firestore project](https://firebase.google.com/docs/firestore/quickstart)
-
+[Create Firestore project](https://firebase.google.com/docs/firestore/quickstart)  
 Update Firebase config in firebase/firebase-project-config.js
 
 $: npm start
