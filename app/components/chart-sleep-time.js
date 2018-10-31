@@ -43,7 +43,7 @@ const ChartSleepTime = props => {
           />
           <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
           <Tooltip content={<CustomTooltip date={showDateRange} />} />
-          <Bar dataKey="totalSleep" fill="#8884d8" />
+          <Bar dataKey="totalSleep" fill="#8884d8" isAnimationActive={false} />
         </BarChart>
       </ResponsiveContainer>
     );

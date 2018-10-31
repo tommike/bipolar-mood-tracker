@@ -41,7 +41,13 @@ const ChartWeight = props => {
           />
           <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
           <Tooltip content={<CustomTooltip date={showDateRange} />} />
-          <Line type="monotone" dataKey="weight" fill="#8884d8" stroke="#8884d8" />
+          <Line
+            type="monotone"
+            dataKey="weight"
+            fill="#8884d8"
+            stroke="#8884d8"
+            isAnimationActive={false}
+          />
         </LineChart>
       </ResponsiveContainer>
     );

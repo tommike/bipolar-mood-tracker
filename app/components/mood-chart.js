@@ -60,7 +60,7 @@ const MoodChart = props => {
         <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
         <Tooltip content={<CustomTooltip date={showDateRange} isMoodChart />} />
 
-        <Scatter data={items} fill="#8884d8">
+        <Scatter data={items} fill="#8884d8" isAnimationActive={false}>
           {items.map((item, index) => {
             const color = Object.prototype.hasOwnProperty.call(item, 'level')
               ? moodLegend[item.level + 5].color

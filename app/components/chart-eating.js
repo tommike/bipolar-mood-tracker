@@ -113,7 +113,13 @@ const ChartEating = props => {
               <stop offset={off} stopColor="red" stopOpacity={1} />
             </linearGradient>
           </defs>
-          <Area type="monotone" dataKey="apetite" stroke="#000" fill="url(#splitColor)" />
+          <Area
+            type="monotone"
+            dataKey="apetite"
+            stroke="#000"
+            fill="url(#splitColor)"
+            isAnimationActive={false}
+          />
         </AreaChart>
       </ResponsiveContainer>
     );
