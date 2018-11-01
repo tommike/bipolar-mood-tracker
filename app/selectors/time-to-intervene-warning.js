@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { moodOptions } from '../tracker-options.config.js';
 
 const getAllMoods = state => state.moods;
+const nrOfDays = 10;
 
 export const getTimeToInterveneStatus = createSelector(getAllMoods, moods => {
   const moodsGroupedByCat = moodOptions
@@ -31,7 +32,7 @@ export const getTimeToInterveneStatus = createSelector(getAllMoods, moods => {
 
   let showWarning = false;
   Object.keys(moodsGroupedByCat).forEach(cat => {
-    moodsGroupedByCat[cat].slice(0, 10).forEach(item => {
+    moodsGroupedByCat[cat].slice(0, nrOfDays).forEach(item => {
       if (item.value >= 3 || item.value <= -3) {
         showWarning = true;
       }
