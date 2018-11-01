@@ -30,6 +30,16 @@ const gradientOffset = data => {
   return dataMax / (dataMax - dataMin);
 };
 
+const loadDataToMonthObject = (monthObject, data) =>
+  data.reduce((acc, item) => {
+    const { timestamp, optionID } = item;
+
+    const day = parseInt(moment.unix(timestamp).format('D'));
+    const value = eatingOptions.find(option => option.id === optionID).scale;
+    acc.find(row => row.day === day).apetite = value;
+    return acc;
+  }, monthObject);
+
 const ChartEating = props => {
   const { data, showDateRange } = props;
 
@@ -41,19 +51,11 @@ const ChartEating = props => {
   const uniqueDaysWithEatingData = daysWithEatingData.filter(
     (elem, pos, arr) => arr.indexOf(elem) === pos
   );
+
   if (uniqueDaysWithEatingData.length > 4) {
     const off = gradientOffset(data);
-
-    const eatingDays = getMonthObject(showDateRange);
-
-    const chartData = data.reduce((acc, item) => {
-      const { timestamp, optionID } = item;
-
-      const day = parseInt(moment.unix(timestamp).format('D'));
-      const value = eatingOptions.find(option => option.id === optionID).scale;
-      acc.find(row => row.day === day).apetite = value;
-      return acc;
-    }, eatingDays);
+    const monthObject = getMonthObject(showDateRange);
+    const chartData = loadDataToMonthObject(monthObject, data);
 
     return (
       <ResponsiveContainer width="100%" height={300}>

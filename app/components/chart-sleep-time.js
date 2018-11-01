@@ -5,31 +5,33 @@ import moment from 'moment';
 import CustomTooltip from './reports-chart-custom-tooltip';
 import { getMonthObject } from '../utils/reports';
 
+const loadDataToMonthObject = (monthObject, data) =>
+  data.reduce((acc, item) => {
+    const { bedtime, wakeup } = item;
+    const day = parseInt(moment.unix(bedtime).format('D'));
+    const totalSleep = (wakeup - bedtime) / 60 / 60;
+
+    const dayProperty = acc.find(row => row.day === day);
+    if (Object.prototype.hasOwnProperty.call(dayProperty, 'totalSleep')) {
+      // add sleep time to existing sleep time
+      dayProperty.totalSleep += totalSleep;
+    } else {
+      dayProperty.totalSleep = totalSleep;
+    }
+
+    return acc;
+  }, monthObject);
+
 const ChartSleepTime = props => {
   const { data, showDateRange } = props;
 
   if (data.length) {
-    const sleepTimeDays = getMonthObject(showDateRange);
-
-    const renderData = data.reduce((acc, item) => {
-      const { bedtime, wakeup } = item;
-      const day = parseInt(moment.unix(bedtime).format('D'));
-      const totalSleep = (wakeup - bedtime) / 60 / 60;
-
-      const dayProperty = acc.find(row => row.day === day);
-      if (Object.prototype.hasOwnProperty.call(dayProperty, 'totalSleep')) {
-        // add sleep time to existing sleep time
-        dayProperty.totalSleep += totalSleep;
-      } else {
-        dayProperty.totalSleep = totalSleep;
-      }
-
-      return acc;
-    }, sleepTimeDays);
+    const monthObject = getMonthObject(showDateRange);
+    const chartData = loadDataToMonthObject(monthObject, data);
 
     return (
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={renderData} margin={{ top: 5, right: 5, bottom: 40, left: 5 }}>
+        <BarChart data={chartData} margin={{ top: 5, right: 5, bottom: 40, left: 5 }}>
           <XAxis
             dataKey="day"
             label={{ value: 'Day', position: 'bottom' }}

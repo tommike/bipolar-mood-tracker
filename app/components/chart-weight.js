@@ -13,17 +13,21 @@ import PropTypes from 'prop-types';
 import CustomTooltip from './reports-chart-custom-tooltip';
 import { getMonthObject } from '../utils/reports';
 
+const loadDataToMonthObject = (monthObject, data) =>
+  data.reduce((acc, item) => {
+    const { timestamp, value } = item;
+    const day = parseInt(moment.unix(timestamp).format('D'));
+    acc.find(row => row.day === day).weight = value;
+    return acc;
+  }, monthObject);
+
 const ChartWeight = props => {
   const { data, showDateRange } = props;
 
   if (data.length) {
-    const weightDays = getMonthObject(showDateRange);
-    const chartData = data.reduce((acc, item) => {
-      const { timestamp, value } = item;
-      const day = parseInt(moment.unix(timestamp).format('D'));
-      acc.find(row => row.day === day).weight = value;
-      return acc;
-    }, weightDays);
+    const monthObject = getMonthObject(showDateRange);
+
+    const chartData = loadDataToMonthObject(monthObject, data);
 
     return (
       <ResponsiveContainer width="100%" height={300}>
