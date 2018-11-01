@@ -43,7 +43,7 @@ export function handleAddSleep(optionID) {
       .then(sleep => {
         dispatch(addSleep(sleep));
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 
@@ -65,7 +65,7 @@ export function handleAddSleepTime(bedtime, wakeup, callback) {
         dispatch(addSleepTime(sleep));
         callback();
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 

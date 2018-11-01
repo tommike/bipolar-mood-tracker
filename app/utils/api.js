@@ -37,7 +37,8 @@ API.saveEating = function(optionID) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchHabits = function() {
@@ -97,7 +98,8 @@ API.saveHabit = function(optionID) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.saveWeight = function(weight) {
@@ -114,7 +116,8 @@ API.saveWeight = function(weight) {
       timestamp: saveObject.timestamp,
       id: doc.id,
       weight,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchMedicaments = function() {
@@ -156,7 +159,8 @@ API.saveMedicament = function(medicationTime, type, dose, notes) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchSelfCare = function() {
@@ -196,7 +200,8 @@ API.saveSelfCare = function(optionID, notes) {
     .then(doc => ({
       id: doc.id,
       ...saveObject,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchSleep = function() {
@@ -234,7 +239,8 @@ API.saveSleep = function(optionID) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchSleepTime = function() {
@@ -274,7 +280,8 @@ API.saveSleepTime = function(bedtime, wakeup) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 API.fetchMood = function() {
@@ -314,7 +321,8 @@ API.saveMood = function(catID, optionID) {
     .then(doc => ({
       ...saveObject,
       id: doc.id,
-    }));
+    }))
+    .catch(error => Promise.reject(error));
 };
 
 export function getInitialData() {

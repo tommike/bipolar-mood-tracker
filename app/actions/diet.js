@@ -61,7 +61,7 @@ export function handleAddEating(optionID) {
       .then(eating => {
         dispatch(addEating(eating));
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 
@@ -82,7 +82,7 @@ export function handleAddHabit(optionID) {
       .then(habit => {
         dispatch(addHabit(habit));
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 
@@ -104,7 +104,7 @@ export function handleAddWeight(weightValue, callback) {
         dispatch(addWeight(weight));
         callback();
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 

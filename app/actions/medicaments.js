@@ -26,7 +26,7 @@ export function handleAddMedicament(medicationTime, type, dose, notes, callback)
         dispatch(addMedicament(medicament));
         callback();
       })
-      .catch(() => alert('There was an error saving medicament. Try again.'));
+      .catch(message => alert(message));
   };
 }
 

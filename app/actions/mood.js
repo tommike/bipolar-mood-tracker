@@ -25,7 +25,7 @@ export function handleAddMood(catID, optionID) {
       .then(mood => {
         dispatch(addMood(mood));
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 

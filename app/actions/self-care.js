@@ -26,7 +26,7 @@ export function handleAddSelfCare(optionID, notes, callback) {
         dispatch(addSelfCare(selfCare));
         callback();
       })
-      .catch(() => alert('There was an error. Try again.'));
+      .catch(message => alert(message));
   };
 }
 
