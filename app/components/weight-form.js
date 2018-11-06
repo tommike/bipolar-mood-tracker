@@ -1,8 +1,7 @@
 /* eslint prefer-destructuring: 0 */
-
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { handleAddWeight } from '../actions/diet';
 
 class WeightForm extends Component {
@@ -26,8 +25,8 @@ class WeightForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { weight } = this.state;
-    const { dispatch } = this.props;
-    dispatch(handleAddWeight(weight, this.afterSubmit));
+    const { dispatchHandleSubmit } = this.props;
+    dispatchHandleSubmit(weight, this.afterSubmit);
   }
 
   afterSubmit() {
@@ -100,8 +99,15 @@ class WeightForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  dispatchHandleSubmit: (weight, callback) => dispatch(handleAddWeight(weight, callback)),
+});
+
 WeightForm.propTypes = {
-  dispatch: PropTypes.func,
+  dispatchHandleSubmit: PropTypes.func,
 };
 
-export default connect()(WeightForm);
+export default connect(
+  null,
+  mapDispatchToProps
+)(WeightForm);
