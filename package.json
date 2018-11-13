@@ -7,7 +7,7 @@
     "test": "jest --watch",
     "test:update": "jest --updateSnapshot",
     "start": "webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack --progress --profile --verbose--bail ",
+    "build": "cross-env NODE_ENV=production webpack --progress --profile --verbose --bail ",
     "firebase-init": "firebase login && firebase init",
     "deploy": "npm run build && firebase deploy",
     "lint": "./node_modules/.bin/eslint ./app/**"
