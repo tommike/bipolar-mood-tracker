@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Bipolar Mood Tracker',
-  description: 'Bipolar Mood Tracker web app',
+  title: 'Bipolar Mood Diary',
+  description: 'Bipolar Mood Diary web app',
   domain: 'http://localhost:8080/',
 };

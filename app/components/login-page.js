@@ -23,9 +23,9 @@ class LoginPage extends React.Component {
     return (
       <div className="page page-login">
         <Helmet>
-          <title>Bipolar Mood Tracker</title>
+          <title>Bipolar Mood Diary</title>
         </Helmet>
-        <h1 className="page__title">Welcome to Bipolar Mood Tracker</h1>
+        <h1 className="page__title">Welcome to Bipolar Mood Diary</h1>
         <p>
           Track your daily mood, sleep patterns, medications, self-care and diet related to Bipolar
           1 and 2 plus Depression and anxiety.
