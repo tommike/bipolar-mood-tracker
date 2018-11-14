@@ -58,11 +58,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html',
-      meta: {
-        title: metaData.title,
-        description: metaData.description,
-        domain: metaData.domain,
-      },
+      title: metaData.title,
+      description: metaData.description,
+      domain: metaData.domain,
     }),
     new MiniCssExtractPlugin({
       filename: productionMode ? '[name].[hash].css' : '[name].css',
